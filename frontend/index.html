@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lunar Multi-Sensor Registration</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">LMR</span>
+    <span class="brand-name">Lunar Multi-Sensor Registration</span>
+  </div>
+  <nav class="topbar-status">
+    <span id="apiStatusDot" class="dot dot-pending"></span>
+    <span id="apiStatusText">connecting to backend&hellip;</span>
+  </nav>
+</header>
+
+<main id="app">
+
+  <!-- ===================== HERO / LANDING ===================== -->
+  <section id="viewLanding" class="view view-landing active">
+    <div class="hero">
+      <p class="hero-kicker">OHRC &middot; TMC &middot; IIRS &middot; SAR</p>
+      <h1>Aligning four lunar sensors into one coordinate frame</h1>
+      <p class="hero-sub">
+        Registers Terrain Mapping Camera, Imaging Infrared Spectrometer, and
+        Synthetic Aperture Radar observations against the Orbiter High
+        Resolution Camera reference frame &mdash; with real feature matching,
+        RANSAC geometric estimation, and measured accuracy, not staged numbers.
+      </p>
+      <div class="hero-actions">
+        <button id="btnRunQuick" class="btn btn-primary">Run analysis</button>
+        <button id="btnCustom" class="btn btn-ghost">Custom sensor selection</button>
+      </div>
+    </div>
+
+    <div class="sensor-row" id="sensorRow"><!-- sensor cards injected --></div>
+
+    <div id="customPanel" class="custom-panel hidden">
+      <p class="custom-panel-title">Select source sensors &mdash; OHRC remains the fixed reference</p>
+      <div class="custom-options">
+        <label class="chip"><input type="checkbox" value="TMC" checked> TMC</label>
+        <label class="chip"><input type="checkbox" value="IIRS" checked> IIRS</label>
+        <label class="chip"><input type="checkbox" value="SAR" checked> SAR</label>
+      </div>
+      <button id="btnRunCustom" class="btn btn-primary btn-small">Run with selection</button>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESSING ===================== -->
+  <section id="viewProcessing" class="view view-processing">
+    <h2 class="section-title">Processing pipeline</h2>
+    <ol class="pipeline" id="pipelineSteps">
+      <li data-step="dataset">Dataset validated</li>
+      <li data-step="analysis">Image characteristics analyzed</li>
+      <li data-step="preprocess">Preprocessing applied</li>
+      <li data-step="detect">Feature detection</li>
+      <li data-step="match">Feature matching</li>
+      <li data-step="register">Geometric registration</li>
+      <li data-step="evaluate">Quantitative validation</li>
+      <li data-step="fuse">Multi-sensor integration</li>
+      <li data-step="ai">Lunar AI interpretation</li>
+    </ol>
+    <p class="processing-note">Running the real registration pipeline against the on-disk dataset. This performs actual OpenCV feature detection, matching, and RANSAC estimation &mdash; typically a few seconds.</p>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section id="viewResults" class="view view-results">
+
+    <div class="results-header">
+      <div>
+        <h2 class="section-title">Registration complete</h2>
+        <p id="runMeta" class="run-meta"></p>
+      </div>
+      <div class="results-actions">
+        <button id="btnDownloadFusion" class="btn btn-primary btn-small">Download output</button>
+        <button id="btnDownloadReport" class="btn btn-ghost btn-small">Download report</button>
+        <button id="btnBackToStart" class="btn btn-ghost btn-small">New run</button>
+      </div>
+    </div>
+
+    <div class="output-hero">
+      <img id="fusionImage" alt="Multi-sensor fused lunar output" />
+      <p class="output-caption">Multi-sensor integrated output &mdash; OHRC spatial base with registered TMC / IIRS / SAR structural contributions overlaid as false-color channels.</p>
+    </div>
+
+    <div class="layer-panel" id="layerPanel">
+      <p class="panel-title">Visible layers</p>
+      <div class="layer-toggles" id="layerToggles"></div>
+    </div>
+
+    <h3 class="subsection-title">Registration quality</h3>
+    <div class="metrics-grid" id="metricsGrid"><!-- injected per sensor --></div>
+
+    <h3 class="subsection-title">Feature correspondence</h3>
+    <div class="match-viz-tabs" id="matchTabs"></div>
+    <div class="match-viz-wrap">
+      <canvas id="matchCanvas"></canvas>
+      <div class="match-controls">
+        <label><input type="radio" name="matchFilter" value="inliers" checked> Inliers only</label>
+        <label><input type="radio" name="matchFilter" value="all"> All candidate matches</label>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Before / after / overlay</h3>
+    <div class="compare-tabs" id="compareTabs"></div>
+    <div class="compare-grid" id="compareGrid"></div>
+
+    <h3 class="subsection-title">Lunar AI &mdash; scientific interpretation</h3>
+    <div class="ai-panel" id="aiPanel"></div>
+
+    <h3 class="subsection-title">Processing history</h3>
+    <div class="history-list" id="historyList"></div>
+
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

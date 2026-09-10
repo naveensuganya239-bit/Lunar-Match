@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: lunar-match
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt && python backend/scripts/generate_demo_dataset.py
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --app-dir backend
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: LUNAR_STORAGE_BACKEND
+        value: local
+      - key: LUNAR_CORS_ORIGINS
+        value: "*"

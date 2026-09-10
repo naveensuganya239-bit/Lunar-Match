@@ -1,0 +1,80 @@
+[
+  {
+    "run_id": "149ded09ee",
+    "timestamp": "2026-09-09T06:40:35.031286+00:00",
+    "mode": "quick_demo",
+    "sensors_used": [
+      "OHRC",
+      "TMC",
+      "IIRS",
+      "SAR"
+    ],
+    "status": "SUCCESS",
+    "fusion_output_path": "149ded09ee/lunar_multisensor_fusion.png"
+  },
+  {
+    "run_id": "531026cbf2",
+    "timestamp": "2026-09-09T05:48:45.333411+00:00",
+    "mode": "quick_demo",
+    "sensors_used": [
+      "OHRC",
+      "TMC",
+      "IIRS",
+      "SAR"
+    ],
+    "status": "SUCCESS",
+    "fusion_output_path": "531026cbf2/lunar_multisensor_fusion.png"
+  },
+  {
+    "run_id": "5a1f937b9c",
+    "timestamp": "2026-09-09T04:12:20.340266+00:00",
+    "mode": "quick_demo",
+    "sensors_used": [
+      "OHRC",
+      "TMC",
+      "IIRS",
+      "SAR"
+    ],
+    "status": "SUCCESS",
+    "fusion_output_path": "5a1f937b9c/lunar_multisensor_fusion.png"
+  },
+  {
+    "run_id": "62fea703b2",
+    "timestamp": "2026-09-09T03:07:56.439473+00:00",
+    "mode": "quick_demo",
+    "sensors_used": [
+      "OHRC",
+      "TMC",
+      "IIRS",
+      "SAR"
+    ],
+    "status": "SUCCESS",
+    "fusion_output_path": "62fea703b2/lunar_multisensor_fusion.png"
+  },
+  {
+    "run_id": "bf24dc3c00",
+    "timestamp": "2026-09-09T03:05:36.287052+00:00",
+    "mode": "quick_demo",
+    "sensors_used": [
+      "OHRC",
+      "TMC",
+      "IIRS",
+      "SAR"
+    ],
+    "status": "SUCCESS",
+    "fusion_output_path": "bf24dc3c00/lunar_multisensor_fusion.png"
+  },
+  {
+    "run_id": "ea95ac62e6",
+    "timestamp": "2026-09-09T03:04:42.333478+00:00",
+    "mode": "quick_demo",
+    "sensors_used": [
+      "OHRC",
+      "TMC",
+      "IIRS",
+      "SAR"
+    ],
+    "status": "SUCCESS",
+    "fusion_output_path": "ea95ac62e6/lunar_multisensor_fusion.png"
+  }
+]

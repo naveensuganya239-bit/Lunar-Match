@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+backend/outputs/*/
+!backend/outputs/.gitkeep
+backend/data/OHRC/
+backend/data/TMC/
+backend/data/IIRS/
+backend/data/SAR/
+.env
+.DS_Store
+node_modules/

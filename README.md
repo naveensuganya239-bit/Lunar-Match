@@ -13,6 +13,8 @@ correspondence between Chandrayaan-2 acquired optical images and lunar
 reference images with sub-pixel-oriented accuracy, plus evaluation
 metrics.*
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/naveensuganya239-bit/Lunar-Match)
+
 ---
 
 ## 1. Read this first -- honesty notes
